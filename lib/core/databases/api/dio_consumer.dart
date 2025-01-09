@@ -1,14 +1,15 @@
 import 'package:clean_architecture/core/databases/api/api_consumer.dart';
 import 'package:clean_architecture/core/databases/api/end_points.dart';
+import 'package:clean_architecture/core/errors/api_error_handler.dart';
 import 'package:dio/dio.dart';
 
-class DioConsumer extends ApiConsumer{
-   final Dio dio;
+class DioConsumer extends ApiConsumer {
+  final Dio dio;
 
   DioConsumer({required this.dio}) {
     dio.options.baseUrl = EndPoints.baserUrl;
   }
- //!POST
+  //!POST
   @override
   Future post(String path,
       {dynamic data,
@@ -21,7 +22,7 @@ class DioConsumer extends ApiConsumer{
         queryParameters: queryParameters,
       );
     } on DioException catch (e) {
-      // handleDioException
+      throw ErrorHandler.handle(e).apiErrorModel;
     }
   }
 
@@ -34,7 +35,7 @@ class DioConsumer extends ApiConsumer{
           await dio.get(path, data: data, queryParameters: queryParameters);
       return res.data;
     } on DioException catch (e) {
-     // handleDioException
+      throw ErrorHandler.handle(e).apiErrorModel;
     }
   }
 
@@ -50,7 +51,7 @@ class DioConsumer extends ApiConsumer{
       );
       return res.data;
     } on DioException catch (e) {
-       // handleDioException
+      throw ErrorHandler.handle(e).apiErrorModel;
     }
   }
 
@@ -68,9 +69,7 @@ class DioConsumer extends ApiConsumer{
       );
       return res.data;
     } on DioException catch (e) {
-       // handleDioException
+      throw ErrorHandler.handle(e).apiErrorModel;
     }
   }
-
 }
-
