@@ -1,5 +1,5 @@
 
-import 'package:clean_architecture/features/user/domain/entities/geo_entitiy.dart';
+import 'package:clean_architecture/features/user/domain/entities/geo_entity.dart';
 
 class Address {
   Address({

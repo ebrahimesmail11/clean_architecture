@@ -1,13 +1,13 @@
-import 'package:clean_architecture/features/user/domain/entities/address_entitiy.dart';
+import 'package:clean_architecture/features/user/domain/entities/address_entity.dart';
 
-class UserEntitiy {
-  UserEntitiy(
+class UserEntity {
+  UserEntity(
       {required this.name,
       required this.email,
       required this.phone,
       required this.address});
-  factory UserEntitiy.fromJson(Map<String, dynamic> json) {
-    return UserEntitiy(
+  factory UserEntity.fromJson(Map<String, dynamic> json) {
+    return UserEntity(
         name: json['name'],
         email: json['email'],
         phone: json['phone'],
