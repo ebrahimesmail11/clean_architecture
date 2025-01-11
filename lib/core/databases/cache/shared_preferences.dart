@@ -37,6 +37,20 @@ class SharedPref {
   ) async {
     await sharedPreferences.setBool(key, booleanValue);
   }
+    Future<bool> saveData({required String key, required dynamic value}) async {
+    if (value is bool) {
+      return  sharedPreferences.setBool(key, value);
+    }
+    if (value is String) {
+      return  sharedPreferences.setString(key, value);
+    }
+
+    if (value is int) {
+      return  sharedPreferences.setInt(key, value);
+    } else {
+      return  sharedPreferences.setDouble(key, value);
+    }
+  }
 
   ///Below method is to get the boolean value from the SharedPreferences.
   bool? getBoolean(String key) {
