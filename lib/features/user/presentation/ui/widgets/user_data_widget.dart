@@ -1,31 +1,32 @@
+import 'package:clean_architecture/features/user/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 
 class UserDataWidget extends StatelessWidget {
-  const UserDataWidget({super.key});
-
+  const UserDataWidget({required this.userEntity, super.key});
+final UserEntity userEntity;
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return  Column(
       children: [
         ListTile(
-          leading: Icon(Icons.person),
+          leading:const  Icon(Icons.person),
           iconColor: Colors.blueAccent,
-          title: Text('cleands sdsa'),
+          title: Text(userEntity.name),
         ),
         ListTile(
           leading: const Icon(Icons.email),
           iconColor: Colors.blueAccent,
-          title: Text('cleands sdsa'),
+          title: Text(userEntity.email),
         ),
         ListTile(
           leading: const Icon(Icons.phone),
           iconColor: Colors.blueAccent,
-          title: Text('cleands sdsa'),
+          title: Text(userEntity.phone),
         ),
         ListTile(
          leading: const Icon(Icons.location_city),
           iconColor: Colors.blueAccent,
-          title: Text('cleands sdsa'),
+          title: Text(userEntity.address.city),
         ),
       ],
     );

@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names, non_constant_identifier_names
+
 import 'package:clean_architecture/core/errors/api_error_model.dart';
 import 'package:clean_architecture/core/errors/api_errors.dart';
 import 'package:dio/dio.dart';
@@ -181,9 +183,7 @@ ApiErrorModel _handleError(DioException error) {
       return DataSource.DEFAULT.getFailure();
     case DioExceptionType.badCertificate:
       return DataSource.DEFAULT.getFailure();
-    case DioExceptionType.badResponse:
-      return DataSource.DEFAULT.getFailure();
-  }
+    }
 }
 
 class ApiInternalStatus {
